@@ -1,0 +1,52 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+
+/**
+ *
+ * @author khact
+ */
+class PhongLyThuyet extends PhongHoc {
+    private boolean coMayChieu;
+
+    public PhongLyThuyet(String maPhong, String dayNha, double dienTich, int soBongDen, boolean coMayChieu) {
+        super(maPhong, dayNha, dienTich, soBongDen);
+        this.coMayChieu = coMayChieu;
+    }
+
+    public boolean coMayChieu() {
+        return coMayChieu;
+    }
+
+    public boolean datChuan() {
+        return super.datChuan() && coMayChieu;
+    }
+
+    public String toString() {
+        return super.toString() +
+               ", Có máy chiếu: " + coMayChieu;
+    }
+}
+
+class PhongMayTinh extends PhongHoc {
+    private int soMayTinh;
+
+    public PhongMayTinh(String maPhong, String dayNha, double dienTich, int soBongDen, int soMayTinh) {
+        super(maPhong, dayNha, dienTich, soBongDen);
+        this.soMayTinh = soMayTinh;
+    }
+
+    public int getSoMayTinh() {
+        return soMayTinh;
+    }
+
+    public boolean datChuan() {
+        return super.datChuan() && (getDienTich() / soMayTinh) >= 1.5;
+    }
+
+    public String toString() {
+        return super.toString() +
+               ", Số máy tính: " + soMayTinh;
+    }
+}
